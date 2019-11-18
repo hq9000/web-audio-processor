@@ -1,19 +1,20 @@
 import express from 'express';
-import { myContainer } from './dependency-injection/inversify.config';
+import { container } from './dependency-injection/inversify.config';
 import { TYPES } from "./dependency-injection/types";
 import { TaskIdGeneratorInterface } from "./dependency-injection/interfaces"
 
 const app = express();
 
 app.get('/', (req, res) => {
+    console.log('preved');
     res.json({ 1: 2 });
 });
 
 app.get('/upload', (req, res) => {
-   const idGen = myContainer.get<TaskIdGeneratorInterface>(TYPES.taskIdGenerator); 
+   const idGen = container.get<TaskIdGeneratorInterface>(TYPES.taskIdGenerator); 
    const taskId: string  = idGen.generateNewTaskId();
    res.status(200);
-   res.write(taskId)
+   res.json({task_id: taskId});
 });
 
 app.listen(3000, ()=> { 

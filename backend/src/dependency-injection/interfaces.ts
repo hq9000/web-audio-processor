@@ -4,14 +4,12 @@ export interface TaskIdGeneratorInterface {
 
 export interface TaskInterface {
     getId(): string;    
-    getAllStages(): string[];
-    getCurrentStage(): string;
-    getCompletenessForStage(stage: string): number;
 }
-
 
 export interface TaskStorageInterface {
     getTaskById(id: string): TaskInterface;
     save(task: TaskInterface): void;
+    count(): number;
+    removeById(taskId: string): void;
 }
 

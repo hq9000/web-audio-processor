@@ -6,7 +6,6 @@ import { injectable } from "inversify";
  */
 @injectable()
 export class TaskStorage implements TaskStorageInterface {
-
   private storage: TaskInterface[] = [];
 
   /**
@@ -16,7 +15,7 @@ export class TaskStorage implements TaskStorageInterface {
   getTaskById(id: string): TaskInterface {
     const idx = this.findIndexById(id);
 
-    if (typeof(idx) == "undefined") {
+    if (typeof idx == "undefined") {
       throw new Error(`a task with id ${id} not found in the storage`);
     }
 
@@ -48,7 +47,6 @@ export class TaskStorage implements TaskStorageInterface {
   }
 
   private findIndexById(taskId: string): number | undefined {
-    
     const ids: string[] = this.storage.map((task: TaskInterface) => {
       return task.getId();
     });
@@ -70,5 +68,4 @@ export class TaskStorage implements TaskStorageInterface {
   count(): number {
     return this.storage.length;
   }
-
 }

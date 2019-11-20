@@ -1,3 +1,5 @@
+import { Task } from "../model/Task";
+
 export interface TaskIdGeneratorInterface {
     generateNewTaskId(): string;
 }
@@ -13,3 +15,6 @@ export interface TaskStorageInterface {
     removeById(taskId: string): void;
 }
 
+export interface ProcessLauncherInterface {
+    launch(task: Task, apiRoot: string): void;
+}

@@ -16,5 +16,5 @@ export interface TaskStorageInterface {
 }
 
 export interface ProcessLauncherInterface {
-  launch(task: Task, apiRoot: string): Promise<void>;
+  launch(task: Task, apiRoot: string): number;
 }

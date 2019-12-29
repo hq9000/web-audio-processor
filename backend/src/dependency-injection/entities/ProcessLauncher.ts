@@ -9,7 +9,7 @@ export class ProcessLauncher implements ProcessLauncherInterface {
     task: Task,
     apiRoot: string
   ): number {
-      const child = exec("ls -la");
-      return child.pid;
+    const child = exec("ls -la");
+    return child.pid;
   }
 }

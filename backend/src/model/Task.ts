@@ -1,6 +1,10 @@
 import { TaskInterface } from "../dependency-injection/interfaces";
 
 export class Task implements TaskInterface {
+
+  set destinationFilePath(value: string | null) {
+    this._destinationFilePath = value;
+  }
   get workerPid(): Number | null {
     return this._workerPid;
   }
@@ -9,17 +13,20 @@ export class Task implements TaskInterface {
     this._workerPid = value;
   }
 
+
   private readonly id: string;
 
-  private _sourceFilePath: string|null = null;
+  private _sourceFilePath: string | null = null;
 
-  private _workerPid: Number|null = null;
+  private _destinationFilePath: string | null =null;
 
-  get sourceFilePath(): string|null {
+  private _workerPid: Number | null = null;
+
+  get sourceFilePath(): string | null {
     return this._sourceFilePath;
   }
 
-  set sourceFilePath(value: string|null) {
+  set sourceFilePath(value: string | null) {
     this._sourceFilePath = value;
   }
 
